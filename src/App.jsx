@@ -34,7 +34,7 @@ const App = () => {
             transition={{ duration: 0.5 }}
             style={{
               color: "white",
-              fontSize: "5rem",
+              fontSize: "7rem",
               background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -45,25 +45,44 @@ const App = () => {
         </marquee>
       </div>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2, delay: 2 }}
+      <motion.div
+        whileHover={{ scale: 0.8 }}
+        drag
+        dragConstraints={{
+          top: -100,
+          left: -100,
+          right: 100,
+          bottom: 100,
+        }}
+        dragElastic={0.6}
         style={{
-          background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
-        Que la agilidad te acompañe
-      </motion.h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2, delay: 2 }}
+          style={{
+            background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            fontSize: "3rem",
+          }}
+        >
+          Que la agilidad te acompañe
+        </motion.h2>
 
-      <Lottie
-        loop
-        animationData={lottieJson}
-        play
-        style={{ width: 150, height: 150 }}
-      />
+        <Lottie
+          loop
+          animationData={lottieJson}
+          play
+          style={{ width: 300, height: 300 }}
+        />
+      </motion.div>
     </div>
   );
 };
